@@ -34,6 +34,22 @@ Output: ["1"]*/
  *     }
  * }
  */
+/*Diagrammmmmmmmmm
+ Start → dfs(1, "")
+        |
+        |-- dfs(2, "1")
+        |     |
+        |     |-- dfs(null, "1->2") → return
+        |     |
+        |     |-- dfs(5, "1->2") → Leaf → Add "1->2->5"
+        |           → return to dfs(2)
+        |     → return to dfs(1)
+        |
+        |-- dfs(3, "1") → Leaf → Add "1->3"
+              → return to dfs(1)
+
+End: result = ["1->2->5", "1->3"]*/
+
 class Solution {
     public List<String> binaryTreePaths(TreeNode root) {
         List<String> result = new ArrayList<>();
